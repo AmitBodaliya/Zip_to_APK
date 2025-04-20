@@ -12,6 +12,7 @@ import android.os.Build
 import android.os.Bundle
 import android.os.Environment
 import android.provider.Settings
+import android.util.Log
 import android.view.ViewGroup
 import android.view.Window
 import android.view.WindowManager
@@ -139,23 +140,26 @@ class ShareActivity : AppCompatActivity() {
             return
         }
 
+        val mimeType = contentResolver.getType(uri)
+
         when {
-            fileName.endsWith(".zip", ignoreCase = true) -> {
+            (fileName.endsWith(".zip", true) == true || mimeType == "application/zip") -> {
                 val zipFile = getFileFromUri(uri, "shared.zip")
                 if (zipFile != null) unzipAndHandle(zipFile)
                 else showToastAndFinish("Invalid ZIP file")
             }
 
-            fileName.endsWith(".apk", ignoreCase = true) -> {
+            (fileName.endsWith(".apk", true) == true || mimeType == "application/vnd.android.package-archive") -> {
                 val apkFile = getFileFromUri(uri, "shared.apk")
                 if (apkFile != null) installAPK(apkFile)
                 else showToastAndFinish("Invalid APK file")
             }
 
             else -> {
-                showToastAndFinish("Unsupported file type: $fileName")
+                showToastAndFinish("Unsupported file type: ${fileName ?: mimeType}")
             }
         }
+
     }
 
 
@@ -199,27 +203,31 @@ class ShareActivity : AppCompatActivity() {
     }
 
 
-
-
     private fun unzipAndHandle(zipFile: File) {
         try {
-            val targetDir = File(cacheDir, "unzipped")
-            if (!targetDir.exists()) targetDir.mkdirs()
+            val targetDir = File(cacheDir, "unzipped").apply {
+                if (!exists()) mkdirs()
+            }
+
+            var extractedApkFile: File? = null
+            val buffer = ByteArray(1024)
 
             ZipInputStream(FileInputStream(zipFile)).use { zis ->
                 var entry: ZipEntry?
-                val buffer = ByteArray(1024)
 
                 while (zis.nextEntry.also { entry = it } != null) {
                     val entryName = entry!!.name
 
-                    // Security: Avoid Zip Slip vulnerability
+                    // ❌ Skip macOS junk files
+                    if (entryName.startsWith("__MACOSX") || entryName.startsWith("._")) continue
+
+                    // Prevent Zip Slip vulnerability
                     val outFile = File(targetDir, entryName).canonicalFile
                     if (!outFile.path.startsWith(targetDir.canonicalPath)) {
                         throw SecurityException("Blocked Zip Slip attempt: $entryName")
                     }
 
-                    if (entry.isDirectory) {
+                    if (entry!!.isDirectory) {
                         outFile.mkdirs()
                     } else {
                         outFile.parentFile?.mkdirs()
@@ -229,17 +237,19 @@ class ShareActivity : AppCompatActivity() {
                                 fos.write(buffer, 0, len)
                             }
                         }
+
+                        // ✅ Check for real APK file (not hidden/junk)
+                        if (entryName.endsWith(".apk", ignoreCase = true)) {
+                            extractedApkFile = outFile
+                        }
                     }
                 }
             }
 
-            // Look for the APK file inside unzipped folder
-            val apkFile = targetDir.listFiles()?.find { it.name.endsWith(".apk", ignoreCase = true) }
-
-            if (apkFile != null && apkFile.exists()) {
-                showActionBottomSheet(apkFile)
+            if (extractedApkFile != null && extractedApkFile.exists()) {
+                showActionBottomSheet(extractedApkFile)
             } else {
-                showToastAndFinish("No APK found inside ZIP")
+                showToastAndFinish("No valid APK found inside ZIP")
             }
 
         } catch (e: Exception) {
@@ -247,6 +257,8 @@ class ShareActivity : AppCompatActivity() {
             showToastAndFinish("Failed to unzip file: ${e.message}")
         }
     }
+
+
 
 
 
