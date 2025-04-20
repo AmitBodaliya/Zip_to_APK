@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.App.MC"
+        tools:targetApi="31">
+
+        <activity
+            android:name=".activity.MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.MC">
+
+            <!-- Main launcher -->
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name=".activity.ShareActivity"
+            android:exported="true"
+            android:theme="@style/Theme.App.Tran.MC">
+
+            <!-- For receiving ZIP or APK files -->
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/zip" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <action android:name="android.intent.action.INSTALL_PACKAGE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:scheme="package" />
+                <data android:scheme="content" />
+                <data android:scheme="file" />
+                <data android:mimeType="application/vnd.android.package-archive" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/vnd.android.package-archive" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/zip" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND_MULTIPLE" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="*/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data android:mimeType="application/vnd.android.package-archive" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:host="*" />
+                <data android:scheme="file" />
+                <data android:scheme="content" />
+                <data android:mimeType="application/zstd" />
+                <data android:mimeType="application/vnd.ms-cab-compressed" />
+                <data android:mimeType="application/vnd.rar" />
+                <data android:mimeType="application/rar" />
+                <data android:mimeType="application/zip" />
+                <data android:mimeType="application/x-cpio" />
+                <data android:mimeType="application/x-debian-package" />
+                <data android:mimeType="application/x-gtar" />
+                <data android:mimeType="application/x-iso9660-image" />
+                <data android:mimeType="application/x-lha" />
+                <data android:mimeType="application/x-lzh" />
+                <data android:mimeType="application/x-lzx" />
+                <data android:mimeType="application/x-tar" />
+                <data android:mimeType="application/x-apple-diskimage" />
+                <data android:mimeType="application/x-ustar" />
+                <data android:mimeType="application/x-gtar-compressed" />
+                <data android:mimeType="application/x-zip-compressed" />
+                <data android:mimeType="application/gnutar" />
+                <data android:mimeType="application/x-compressed" />
+                <data android:mimeType="application/x-7z-compressed" />
+                <data android:mimeType="application/x-lz4" />
+                <data android:mimeType="application/x-ace-compressed" />
+                <data android:mimeType="application/x-bzip" />
+                <data android:mimeType="application/x-bzip2" />
+                <data android:mimeType="application/x-gzip" />
+                <data android:mimeType="application/x-xz" />
+                <data android:mimeType="application/vnd.ms-cab-compressed" />
+                <data android:mimeType="application/x-lzma" />
+                <data android:mimeType="application/java-archive" />
+                <data android:mimeType="application/x-rar-compressed" />
+                <data android:mimeType="application/x-compress" />
+                <data android:mimeType="application/x-rpm" />
+                <data android:mimeType="application/gzip" />
+                <data android:mimeType="application/7z" />
+                <data android:mimeType="application/gz" />
+                <data android:mimeType="application/bz" />
+                <data android:mimeType="application/bz2" />
+                <data android:mimeType="application/xz" />
+                <data android:mimeType="application/zipx" />
+                <data android:mimeType="application/lza" />
+                <data android:mimeType="application/lzx" />
+                <data android:mimeType="application/lzma" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:host="*" />
+                <data android:mimeType="*/*" />
+                <data android:scheme="file" />
+                <data android:scheme="content" />
+                <data android:pathPattern=".*.zip" />
+                <data android:pathPattern=".*..*.zip" />
+                <data android:pathPattern=".*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*..*.zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*..*..*.zip" />
+                <data android:pathPattern=".*.zip.001" />
+                <data android:pathPattern=".*..*.zip.001" />
+                <data android:pathPattern=".*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*..*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*..*.zip.001" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*..*..*.zip.001" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:host="*" />
+                <data android:mimeType="*/*" />
+                <data android:scheme="file" />
+                <data android:scheme="content" />
+                <data android:pathPattern=".*.ZIP" />
+                <data android:pathPattern=".*..*.ZIP" />
+                <data android:pathPattern=".*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*..*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*..*.ZIP" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*..*..*.ZIP" />
+                <data android:pathPattern=".*.Zip" />
+                <data android:pathPattern=".*..*.Zip" />
+                <data android:pathPattern=".*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*..*.Zip" />
+                <data android:pathPattern=".*..*..*..*..*..*..*..*..*..*..*..*..*..*..*.Zip" />
+                <data android:pathPattern=".*7Z.001" />
+                <data android:pathPattern=".*ZIP.001" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".activity.PermissionActivity"
+            android:exported="false" />
+
+        <activity android:name=".activity.SplashActivity"
+            android:exported="false" />
+
+
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+    </application>
+
+</manifest>

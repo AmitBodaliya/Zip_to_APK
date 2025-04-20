@@ -1,0 +1,232 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Theme.App.Splash" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/colorSurface</item>
+        <item name="windowSplashScreenAnimatedIcon">@mipmap/ic_launcher</item>
+        <item name="postSplashScreenTheme">@style/Theme.App.M3</item>
+    </style>
+
+
+
+    <style name="Theme.App.Tran.M3" parent="Theme.App.M3">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+
+
+    <style name="Theme.App.Tran.MC" parent="Theme.App.MC">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+    </style>
+
+
+
+
+    <style name="Theme.App.M3" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Primary Colors -->
+        <item name="colorPrimary">?attr/colorPrimary</item>
+        <item name="colorOnPrimary">?attr/colorOnPrimary</item>
+        <item name="colorPrimaryContainer">?attr/colorPrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">?attr/colorOnPrimaryContainer</item>
+
+        <!-- Secondary Colors -->
+        <item name="colorSecondary">?attr/colorSecondary</item>
+        <item name="colorOnSecondary">?attr/colorOnSecondary</item>
+        <item name="colorSecondaryContainer">?attr/colorSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">?attr/colorOnSecondaryContainer</item>
+
+        <!-- Surface Colors -->
+        <item name="colorSurface">?attr/colorSurface</item>
+        <item name="colorOnSurface">?attr/colorOnSurface</item>
+        <item name="colorOnSurfaceVariant">?attr/colorOnSurfaceVariant</item>
+        <item name="colorOutline">?attr/colorOutline</item>
+        <item name="colorOutlineVariant">?attr/colorOutlineVariant</item>
+        <item name="colorSurfaceContainer">?attr/colorSurfaceContainer</item>
+        <item name="colorSurfaceContainerLow">?attr/colorSurfaceContainerLow</item>
+        <item name="colorSurfaceContainerHigh">?attr/colorSurfaceContainerHigh</item>
+
+
+        <!-- InDirected Color-->
+
+        <!-- Windows Color-->
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">?attr/colorSurface</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">?attr/colorSurface</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">?attr/colorSurfaceContainer</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+
+        <!-- Text Colors -->
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:textColorPrimary">?attr/colorOnSurface</item>
+        <item name="android:textColorSecondary">?attr/colorOnSurfaceVariant</item>
+
+        <!-- Icon-->
+        <item name="android:colorControlNormal">?attr/colorOnSurface</item>
+
+        <!-- Accent Color (Legacy) -->
+        <item name="colorAccent">?attr/colorPrimary</item>
+        <item name="android:colorAccent">?attr/colorPrimary</item>
+
+    </style>
+
+
+    <style name="Theme.App.MC" parent="Theme.Material3.DayNight.NoActionBar">
+
+        <!-- Primary Colors -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorPrimaryContainer">@color/colorPrimaryContainer</item>
+        <item name="colorOnPrimaryContainer">@color/colorOnPrimaryContainer</item>
+
+        <!-- Secondary Colors -->
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="colorSecondaryContainer">@color/colorSecondaryContainer</item>
+        <item name="colorOnSecondaryContainer">@color/colorOnSecondaryContainer</item>
+
+        <!-- Surface Colors -->
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+        <item name="colorOnSurfaceVariant">@color/colorOnSurfaceVariant</item>
+        <item name="colorOutline">@color/colorOutline</item>
+        <item name="colorOutlineVariant">@color/colorOutlineVariant</item>
+        <item name="colorSurfaceContainer">@color/colorSurfaceContainer</item>
+        <item name="colorSurfaceContainerLow">@color/colorSurfaceContainerLow</item>
+        <item name="colorSurfaceContainerHigh">@color/colorSurfaceContainerHigh</item>
+
+
+        <!-- InDirected Color-->
+
+        <!-- Windows Color-->
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowBackground">@color/colorSurface</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@color/colorSurface</item>
+        <item name="android:windowLightStatusBar">true</item>
+
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@color/colorSurfaceContainer</item>
+        <item name="android:windowLightNavigationBar" tools:targetApi="27">true</item>
+
+        <!-- Text Colors -->
+        <item name="android:textColor">@color/colorOnSurface</item>
+        <item name="android:textColorPrimary">@color/colorOnSurface</item>
+        <item name="android:textColorSecondary">@color/colorOnSurfaceVariant</item>
+
+        <!-- Icon-->
+        <item name="android:colorControlNormal">@color/colorOnSurface</item>
+
+        <!-- Accent Color (Legacy) -->
+        <item name="colorAccent">@color/colorPrimary</item>
+        <item name="android:colorAccent">@color/colorPrimary</item>
+
+    </style>
+
+
+    <!-- Primary Button Style -->
+    <style name="PrimaryButtonStyle" parent="Widget.Material3.Button">
+        <item name="android:backgroundTint">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+
+    <style name="PrefixTextStyle" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+
+    <!-- Secondary Button Style -->
+    <style name="SecondaryButtonStyle" parent="Widget.Material3.Button.OutlinedButton">
+        <item name="android:backgroundTint">?attr/colorSurface</item>
+        <item name="android:strokeColor">?attr/colorOutline</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+    </style>
+
+
+    <!-- Full-Screen Alert Dialog -->
+    <style name="FullScreenAlertDialogStyle" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
+        <item name="android:navigationBarColor">?attr/colorSurface</item>
+        <item name="android:background">?attr/colorPrimaryContainer</item>
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- Button text color for better contrast -->
+        <item name="android:textColorPrimary">?attr/colorOnPrimaryContainer</item>
+        <item name="android:textColorSecondary">?attr/colorOnSurface</item>
+        <item name="android:buttonStyle">@style/Widget.Material3.Button</item>
+    </style>
+
+
+    <!-- Bottom Sheet Dialog -->
+    <style name="BottomSheetDialogStyle" parent="ThemeOverlay.Material3.BottomSheetDialog">
+        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:colorBackground">?attr/colorSurface</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">?attr/colorSurfaceVariant</item>
+        <item name="colorControlNormal">?attr/colorOnSurface</item>
+        <item name="colorAccent">?attr/colorPrimary</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="bottomSheetStyle">@style/bottomSheetStyleWrapper</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <style name="bottomSheetStyleWrapper" parent="Widget.Material3.BottomSheet">
+        <item name="android:background">?attr/colorSurface</item>
+    </style>
+
+
+    <!-- Popup Menu -->
+    <style name="PopupMenu" parent="Widget.AppCompat.PopupMenu">
+        <item name="elevation">@dimen/cardElevationPopupMenu</item>
+        <item name="android:popupElevation">5dp</item>
+        <item name="popupMenuBackground">@drawable/drawable_menu</item>
+        <item name="android:popupMenuStyle">@style/PopupMenuBGStyle</item>
+        <item name="colorControlNormal">?attr/colorOnSurface</item>
+        <item name="android:textColor">?attr/colorOnSurface</item>
+    </style>
+
+    <style name="PopupMenuBGStyle" parent="Widget.MaterialComponents.PopupMenu">
+        <item name="android:popupBackground">@drawable/drawable_menu</item>
+    </style>
+
+
+
+    <style name="Theme.App" parent="Theme.MaterialComponents.Light" />
+
+
+    <style name="BottomNavLabelStyle" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
+
+    <style name="TopCornersRoundCard" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+    </style>
+
+
+
+</resources>

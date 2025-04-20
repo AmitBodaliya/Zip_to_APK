@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Zip to APK</string>
+    <string name="install_apk">Install APK</string>
+    <string name="todo">TODO</string>
+    <string name="share_apk">Share APK</string>
+    <string name="select_zip_or_apk">Select Zip or APK</string>
+    <string name="save">Save</string>
+</resources>
