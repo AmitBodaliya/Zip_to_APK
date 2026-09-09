@@ -1,6 +1,6 @@
 # 📦 ZIP to APK Converter App
 
-A simple Android utility app that allows users to **convert ZIP files containing APKs into installable APKs** or extract APKs from ZIP archives. This makes APK distribution and installation easier for developers and teams.
+A simple Android utility app that allows users to **convert ZIP files containing APKs into installable APKs** o2r extract APKs from ZIP archives. This makes APK distribution and installation easier for developers and teams.
 
 ---
 
